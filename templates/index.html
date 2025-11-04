@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager AI</title>
+</head>
+<body>
+    <h1>Task Manager AI</h1>
+    <form method="post">
+        <label for="task">Enter a task:</label><br>
+        <input type="text" id="task" name="task" value="{{ task }}" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+     
+    
+    {% if result %}
+        <h2>Results</h2>
+        <p><strong>Generated Subtasks:</strong></p>
+        <ul>
+            {% for data in result['generated'] %}
+            <li>{{ data }}</li>
+            {%endfor%}
+        </ul>
+        <p><strong>Classified:</strong></p>
+        <ul>
+            {% for classifcation in result['classified'] %}
+            <li>{{ classifcation }}</li>
+            {%endfor%}
+        </ul>
+        <p><strong>Summary:</strong> {{ result['summary'] }}</p>
+        <p><strong>Plan:</strong></p>
+        <ul>
+            {% for plan in result['plan'] %}
+            <li>{{ plan }}</li>
+            {%endfor%}
+        </ul>
+    {% endif %}
+</body>
+</html>
