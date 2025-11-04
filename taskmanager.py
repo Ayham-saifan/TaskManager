@@ -1,8 +1,8 @@
 from langchain_openai import ChatOpenAI
-
+from config import OPENAI_API_KEY
 class TaskModel:
     def __init__(self, model_name="gpt-4o-mini"):
-        self.llm = ChatOpenAI(model=model_name)
+        self.llm = ChatOpenAI(model=model_name, api_key=OPENAI_API_KEY)
 
     def invoke(self, prompt: str) -> str:
         """Invoke the LLM with a prompt and return the content"""

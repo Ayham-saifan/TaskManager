@@ -2,6 +2,7 @@ from typing import List, Dict, TypedDict
 from langgraph.graph import StateGraph, START, END
 from taskmanager import TaskModel  # import the model class
 
+
 # TypedDict for the state
 class TaskState(TypedDict):
     tasks: List[str]
